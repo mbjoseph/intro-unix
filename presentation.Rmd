@@ -1,6 +1,6 @@
 ---
-title: "Command line basics"
-subtitle: "Supercomputing boot camp"
+title: "Command line basics:"
+subtitle: "2016 HPC boot camp"
 author: "Max Joseph"
 date: "July 18, 2016"
 output:
@@ -12,9 +12,11 @@ output:
 
 # Preliminaries
 
+
 ## 
 
 https://etherpad.net/p/hpcboot-bash
+
 
 ## Help
 
@@ -25,6 +27,7 @@ https://etherpad.net/p/hpcboot-bash
 
 ![](img/help.jpg)
 
+
 ## Get data {data-background=#990000}
 
 swcarpentry.github.io/shell-novice/shell-novice-data.zip
@@ -33,6 +36,7 @@ swcarpentry.github.io/shell-novice/shell-novice-data.zip
 2. Extract onto Desktop
 3. Verify that you have a folder called `data-shell`
 4. Green sticky when done
+
 
 ## Open a terminal emulator {data-background="img/terminal-dark.jpg"}
 
@@ -44,35 +48,63 @@ Cmd+space: terminal
 
 Windows key, then type "Git Bash" and press enter
 
+
 # Navigation {data-background="img/navigation-dark.jpg"}
 
+
 ## Key commands
-
-Print working directory
-
-`pwd`
-
-Change directory
-
-`cd`
 
 List directory contents
 
 `ls`
 
-## Options for `ls`
+Change directory
+
+`cd`
+
+Print working directory
+
+`pwd`
+
+
+## Challenge  {data-background=#990000}
+
+What is your working directory?
+
+What is in your working directory?
+
+
+
+## Solution  {data-background=#990000}
+
+What is your working directory?
+
+`pwd`
+
+What is in your working directory?
+
+`ls`
+
+## Flags
 
 ```
-ls -a     # shows all
+ls -a   # show all
 
-ls -l     # long form
+ls -l   # long form
 
-ls -h     # human readable
+ls -h   # human readable
 
-ls -F     # appends indicators
+ls -F   # append indicators
 
-ls -Fahl
+ls -R   # recursively list files
 ```
+
+```
+ls -R -a -h -l -F
+
+ls -RahlF
+```
+
 
 ## Man pages (`q` to exit)
 
@@ -83,21 +115,19 @@ man ls
 ![](img/rtfm.png)
 
 
-## The home directory
-
-```
-cd ~
-```
+## Go to home directory: cd $\sim$
 
 **Macintosh**: /Users/max/
 
-**Windows**: /c/Users/max/
+**Windows**: C:\\Users\\max $\rightarrow$ /c/Users/max/
 
 **Linux**: /home/max/
+
 
 ## The root directory
 
 ![](img/filesystem.svg)
+
 
 ## What's in your root directory?  {data-background=#990000}
 
@@ -106,6 +136,7 @@ cd ~
 List the contents of your root directory *without navigating to it*
 
 i.e., do not use `cd`
+
 
 ## Solution {data-background=#990000}
 
@@ -117,8 +148,6 @@ i.e., do not use `cd`
 Relative:
 
 ```
-cd ~ 
-
 cd Desktop
 
 cd ../Documents
@@ -139,23 +168,27 @@ What will `ls ../backup` display?
 
 ![](img/filesystem-challenge.svg)
 
+
 ## Going up in the file tree
 
 `..` always* refers to one level up in the directory tree 
 
+![](img/filesystem-challenge.svg)
+
 ## Challenge {data-background=#990000}
 
-List the contents of your root directory from your Desktop using relative paths?
+List the contents of `/` from the Desktop with relative paths
 
 *Hint:* do not use `cd` 
 
-## Solution {data-background=#990000}
 
+## Solution {data-background=#990000}
 
 `ls ../../..`
 
 
-# Working with files and directories {data-background="img/files-dark.jpg"}
+# Files and directories {data-background="img/files-dark.jpg"}
+
 
 ## Key commands
 
@@ -169,14 +202,98 @@ List the contents of your root directory from your Desktop using relative paths?
 
 `cp`
 
-## Editing & renaming files {data-background=#990000}
+
+## File operations {data-background=#990000}
 
 1. Use `nano` to edit data-shell/writing/haiku.txt
     
 2. Put `haiku.txt` in `data-shell/writing/old/`
 
-3. Write a grocery list in `data-shell/shopping/` called `groceries.txt`
-
-4. Rename your grocery list to `grocery_list.txt`
-
 **Bonus**: Open a file with nano in read-only mode
+
+
+## Wildcards
+
+In `data-shell/molecules/`
+
+```
+ls *.pdb
+
+ls p*
+
+ls *than*
+```
+
+Single character equivalent is `?` 
+
+```
+ls ?thane.pdb
+```
+
+
+## Using wildcards {data-background=#990000}
+
+When run in the molecules directory, which ls command will produce this output?
+
+ethane.pdb methane.pdb
+
+1. `ls *t*ane.pdb`
+2. `ls *t?ne.*`
+3. `ls *t??ne.pdb`
+4. `ls ethane.*`
+
+**Bonus**
+
+Put all files with "thane" in the filename in a new directory called `thanes/`
+
+
+## Counting words, lines, and characters
+
+In `data-shell/molecules/`
+
+Count the number of lines in each .pdb file
+
+```
+wc *.pdb
+```
+
+
+## Redirecting output
+
+
+```
+wc *.pdb > counts.txt
+```
+
+## Piping 
+
+```
+wc *.pdb | sort
+```
+
+Output from command 1 $\rightarrow$ input for command 2
+
+
+## Challenge {data-background=#990000}
+
+Create a file `data-shell/data/pdb/line-counts.txt` that: 
+
+- contains line counts for each .pdb file in `data-shell/data/pdb` with a molecule name ending in "ol"
+- is sorted from smallest to largest line count
+
+**Hint: use wildcards, piping, and output redirection**
+
+
+## Solution {data-background=#990000}
+
+Create a file `data-shell/data/pdb/line-counts.txt` that: 
+
+- contains line counts for each .pdb file in `data-shell/data/pdb` with a molecule name ending in "ol"
+- is sorted from smallest to largest line count
+
+```
+cd data/pdb
+
+wc -c *ol.pdb | sort > line-counts.txt
+```
+
