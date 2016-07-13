@@ -128,9 +128,20 @@ Absolute:
 cd /Users/max/Desktop
 ```
 
+## Challenge {data-background=#990000}
+
+How do you change directories from your Desktop to your root directory using relative paths?
+
+## Solution {data-background=#990000}
+
+cd ../../..
+
+
 ## Relative path resolution {data-background=#990000}
 
-If `pwd` displays `/Users/thing`, what will `ls ../backup` display?
+`pwd` displays `/Users/thing`
+
+What will `ls ../backup` display?
 
 ![](img/filesystem-challenge.svg)
 
