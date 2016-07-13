@@ -1,7 +1,8 @@
 ---
 title: "Command line basics"
+subtitle: "Supercomputing boot camp"
 author: "Max Joseph"
-date: "July 11, 2016"
+date: "July 18, 2016"
 output:
   revealjs::revealjs_presentation:
     theme: night
@@ -24,7 +25,7 @@ https://etherpad.net/p/hpcboot-bash
 
 ![](img/help.jpg)
 
-## Get data
+## Get data {data-background=#990000}
 
 swcarpentry.github.io/shell-novice/shell-novice-data.zip
 
@@ -59,7 +60,7 @@ List directory contents
 
 `ls`
 
-## Handy arguments to `ls`
+## Options for `ls`
 
 ```
 ls -a     # shows all
@@ -110,6 +111,7 @@ i.e., do not use `cd`
 
 `ls /`
 
+
 ## Relative vs. absolute paths
 
 Relative:
@@ -128,16 +130,8 @@ Absolute:
 cd /Users/max/Desktop
 ```
 
-## Challenge {data-background=#990000}
 
-How do you change directories from your Desktop to your root directory using relative paths?
-
-## Solution {data-background=#990000}
-
-cd ../../..
-
-
-## Relative path resolution {data-background=#990000}
+## Challenge: predicting output {data-background=#990000}
 
 `pwd` displays `/Users/thing`
 
@@ -145,3 +139,44 @@ What will `ls ../backup` display?
 
 ![](img/filesystem-challenge.svg)
 
+## Going up in the file tree
+
+`..` always* refers to one level up in the directory tree 
+
+## Challenge {data-background=#990000}
+
+List the contents of your root directory from your Desktop using relative paths?
+
+*Hint:* do not use `cd` 
+
+## Solution {data-background=#990000}
+
+
+`ls ../../..`
+
+
+# Working with files and directories {data-background="img/files-dark.jpg"}
+
+## Key commands
+
+`nano`
+
+`rm`
+
+`mkdir`
+
+`mv`
+
+`cp`
+
+## Editing & renaming files {data-background=#990000}
+
+1. Use `nano` to edit data-shell/writing/haiku.txt
+    
+2. Put `haiku.txt` in `data-shell/writing/old/`
+
+3. Write a grocery list in `data-shell/shopping/` called `groceries.txt`
+
+4. Rename your grocery list to `grocery_list.txt`
+
+**Bonus**: Open a file with nano in read-only mode
