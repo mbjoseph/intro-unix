@@ -105,6 +105,12 @@ ls -R -a -h -l -F
 ls -RahlF
 ```
 
+## Listing the contents of a specific directory
+
+```
+ls creatures/
+```
+
 
 ## Man pages (`q` to exit)
 
@@ -159,6 +165,8 @@ Absolute:
 cd /Users/max/Desktop
 ```
 
+
+## Challenge: using absolute vs. relative paths
 
 ## Challenge: predicting output {data-background=#990000}
 
