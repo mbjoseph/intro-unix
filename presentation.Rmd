@@ -13,9 +13,21 @@ output:
 # Preliminaries
 
 
-## 
+
+## My assumptions
+
+1. You have completed the pre-workshop prep material
+
+https://www.rc.colorado.edu/training/workshop/2016basicsbootcamp
+
+2. You installed Bash and Nano
+
+
+
+## Our etherpad
 
 https://etherpad.net/p/hpcboot-bash
+
 
 
 ## Help
@@ -28,6 +40,7 @@ https://etherpad.net/p/hpcboot-bash
 ![](img/help.jpg)
 
 
+
 ## Get data {data-background=#990000}
 
 swcarpentry.github.io/shell-novice/shell-novice-data.zip
@@ -36,6 +49,13 @@ swcarpentry.github.io/shell-novice/shell-novice-data.zip
 2. Extract onto Desktop
 3. Verify that you have a folder called `data-shell`
 4. Green sticky when done
+
+
+
+## Let's go back
+
+![](img/terminal.jpg)
+
 
 
 ## Open a terminal emulator {data-background="img/terminal-dark.jpg"}
@@ -49,7 +69,9 @@ Cmd+space: terminal
 Windows key, then type "Git Bash" and press enter
 
 
+
 # Navigation {data-background="img/navigation-dark.jpg"}
+
 
 
 ## Key commands
@@ -67,6 +89,7 @@ Print working directory
 `pwd`
 
 
+
 ## Challenge  {data-background=#990000}
 
 What is your working directory?
@@ -75,7 +98,7 @@ What is in your working directory?
 
 
 
-## Solution  {data-background=#990000}
+## Solution  {data-background=#006600}
 
 What is your working directory?
 
@@ -84,6 +107,8 @@ What is your working directory?
 What is in your working directory?
 
 `ls`
+
+
 
 ## Flags
 
@@ -105,11 +130,7 @@ ls -R -a -h -l -F
 ls -RahlF
 ```
 
-## Listing the contents of a specific directory
 
-```
-ls creatures/
-```
 
 
 ## Man pages (`q` to exit)
@@ -121,18 +142,64 @@ man ls
 ![](img/rtfm.png)
 
 
-## Go to home directory: cd $\sim$
 
-**Macintosh**: /Users/max/
+## Challenge  {data-background=#990000}
 
-**Windows**: C:\\Users\\max $\rightarrow$ /c/Users/max/
+1. Navigate to the folder `data-shell/` 
 
-**Linux**: /home/max/
+2. List **a**ll of the files in that folder
+
+
+
+## Solution  {data-background=#006600}
+
+```
+cd Desktop/data-shell
+
+ls -a
+```
+
+
+
+## Listing contents of directory
+
+```
+ls creatures
+```
+
+
+
+
+## Challenge  {data-background=#990000}
+
+1. List the contents of `data-shell/data/pdb/` **without changing your current working directory**
+
+
+
+## Solution  {data-background=#006600}
+
+```
+ls data/pdb
+```
+
+
+
+
+
+## Where is home? {data-background=#990000}
+
+Use `cd` $\sim$ to navigate home. 
+
+1. What is the path to your home directory?
+
+2. Is your home path the same as your neighbor's?
+
 
 
 ## The root directory
 
 ![](img/filesystem.svg)
+
 
 
 ## What's in your root directory?  {data-background=#990000}
@@ -144,9 +211,11 @@ List the contents of your root directory *without navigating to it*
 i.e., do not use `cd`
 
 
-## Solution {data-background=#990000}
+
+## Solution {data-background=#006600}
 
 `ls /`
+
 
 
 ## Relative vs. absolute paths
@@ -166,15 +235,18 @@ cd /Users/max/Desktop
 ```
 
 
+
 ## Challenge: using absolute vs. relative paths
+
 
 ## Challenge: predicting output {data-background=#990000}
 
-`pwd` displays `/Users/thing`
+`pwd` displays `/Users/thing/`
 
 What will `ls ../backup` display?
 
 ![](img/filesystem-challenge.svg)
+
 
 
 ## Going up in the file tree
@@ -183,19 +255,10 @@ What will `ls ../backup` display?
 
 ![](img/filesystem-challenge.svg)
 
-## Challenge {data-background=#990000}
-
-List the contents of `/` from the Desktop with relative paths
-
-*Hint:* do not use `cd` 
-
-
-## Solution {data-background=#990000}
-
-`ls ../../..`
 
 
 # Files and directories {data-background="img/files-dark.jpg"}
+
 
 
 ## Key commands
@@ -211,6 +274,7 @@ List the contents of `/` from the Desktop with relative paths
 `cp`
 
 
+
 ## File operations {data-background=#990000}
 
 1. Use `nano` to edit data-shell/writing/haiku.txt
@@ -218,6 +282,7 @@ List the contents of `/` from the Desktop with relative paths
 2. Put `haiku.txt` in `data-shell/writing/old/`
 
 **Bonus**: Open a file with nano in read-only mode
+
 
 
 ## Wildcards
@@ -239,6 +304,7 @@ ls ?thane.pdb
 ```
 
 
+
 ## Using wildcards {data-background=#990000}
 
 When run in the molecules directory, which ls command will produce this output?
@@ -255,6 +321,7 @@ ethane.pdb methane.pdb
 Put all files with "thane" in the filename in a new directory called `thanes/`
 
 
+
 ## Counting words, lines, and characters
 
 In `data-shell/molecules/`
@@ -266,12 +333,13 @@ wc *.pdb
 ```
 
 
-## Redirecting output
 
+## Redirecting output
 
 ```
 wc *.pdb > counts.txt
 ```
+
 
 ## Piping 
 
@@ -280,6 +348,7 @@ wc *.pdb | sort
 ```
 
 Output from command 1 $\rightarrow$ input for command 2
+
 
 
 ## Challenge {data-background=#990000}
@@ -292,7 +361,8 @@ Create a file `data-shell/data/pdb/line-counts.txt` that:
 **Hint: use wildcards, piping, and output redirection**
 
 
-## Solution {data-background=#990000}
+
+## Solution {data-background=#006600}
 
 Create a file `data-shell/data/pdb/line-counts.txt` that: 
 
