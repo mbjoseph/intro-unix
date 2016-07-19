@@ -14,13 +14,13 @@ output:
 
 
 
-## My assumptions
+## My assumption
 
-1. You have completed the pre-workshop prep material
+You have completed the pre-workshop prep material
 
 https://www.rc.colorado.edu/training/workshop/2016basicsbootcamp
 
-2. You installed Bash and Nano
+if not, do so now
 
 
 
@@ -43,7 +43,9 @@ https://etherpad.net/p/hpcboot-bash
 
 ## Get data {data-background=#990000}
 
-swcarpentry.github.io/shell-novice/shell-novice-data.zip
+(link on etherpad)
+
+https://www.dropbox.com/s/bhbg6qsjalpm56q/data-shell.zip?dl=0
 
 1. Download .zip file
 2. Extract onto Desktop
@@ -98,7 +100,7 @@ What is in your working directory?
 
 
 
-## Solution  {data-background=#006600}
+## Solution  {data-background=#005b00}
 
 What is your working directory?
 
@@ -147,11 +149,11 @@ man ls
 
 1. Navigate to the folder `data-shell/` 
 
-2. List **a**ll of the files in that folder
+2. List all of the files in that folder (including hidden files)
 
 
 
-## Solution  {data-background=#006600}
+## Solution  {data-background=#005b00}
 
 ```
 cd Desktop/data-shell
@@ -176,7 +178,7 @@ ls creatures
 
 
 
-## Solution  {data-background=#006600}
+## Solution  {data-background=#005b00}
 
 ```
 ls data/pdb
@@ -212,7 +214,7 @@ i.e., do not use `cd`
 
 
 
-## Solution {data-background=#006600}
+## Solution {data-background=#005b00}
 
 `ls /`
 
@@ -362,7 +364,7 @@ Create a file `data-shell/data/pdb/line-counts.txt` that:
 
 
 
-## Solution {data-background=#006600}
+## Solution {data-background=#005b00}
 
 Create a file `data-shell/data/pdb/line-counts.txt` that: 
 
@@ -372,6 +374,6 @@ Create a file `data-shell/data/pdb/line-counts.txt` that:
 ```
 cd data/pdb
 
-wc -c *ol.pdb | sort > line-counts.txt
+wc -l *ol.pdb | sort > line-counts.txt
 ```
 
